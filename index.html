@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William77 X 履歷 X 作品</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="./assets/browser@4"></script>
+    <style>
+        .font-tech {
+            font-family: 'Orbitron', 'Rajdhani', sans-serif;
+        }
+
+        .bg-diagonal {
+            background-size: 10px 10px;
+            background-image: repeating-linear-gradient(45deg,
+                    #414553 0,
+                    #414553 1px,
+                    #35354d33 0,
+                    #35354d33 50%);
+        }
+
+        .text-border-black {
+            text-shadow:
+                1px 1px 1px black,
+                -1px -1px 1px black,
+                1px -1px 1px black,
+                -1px 1px 1px black;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            let age = document.getElementById('age')
+            age.innerHTML = new Date().getFullYear() - 1984
+
+            scrollTriggerAnimation(
+                'floatUp',
+                (el, idx) => {
+                    el.style.opacity = '0';
+                    el.style.transform = `translateY(${50 + idx * 10}px)`;
+                },
+                (el) => {
+                    setTimeout(() => {
+                        el.style.transition = 'all 1s';
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0px)';
+                        setTimeout(() => (el.style.transition = ''), 1000);
+                    });
+                },
+            );
+        }
+
+        // core animation function
+        function scrollTriggerAnimation(className, initFunc, completeFunc) {
+            // 1. Configure the observer options
+            const options = {
+                root: null, // Use browser viewport
+                rootMargin: '0px',
+                threshold: 0.2, // Trigger when 15% of the element is visible
+            };
+
+            // 2. Create the callback function
+            const callback = (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Add the class to trigger CSS transition
+                        completeFunc && completeFunc(entry.target);
+                        // Stop observing once animated (removes duplicate animations)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            // 3. Initialize the observer
+            const observer = new IntersectionObserver(callback, options);
+
+            // 4. Target all elements with the class and start observing
+            const targetElements = document.querySelectorAll('.' + className);
+            targetElements.forEach((element, idx) => {
+                initFunc && initFunc(element, idx);
+                observer.observe(element);
+            });
+        }
+    </script>
+</head>
+
+<body class="bg-gray-400 font-tech">
+    <div class="flex justify-between text-gray-200 bg-gray-800 text-xl p-5">
+        <div class="text-border-black">William77 <span class="text-gray-600">X</span> 簡易履歷 <span
+                class="text-gray-600">X</span> 作品展示</div>
+        <div><span class="text-[14px] text-border-black">update @ 2027/07/10</span></div>
+    </div>
+    <div class="border border-orange-300"></div>
+    <div class="floatUp flex justify-center gap-5 py-5">
+        <div class="flex items-end"><img src="./assets/me.jpeg" width="400"></div>
+        <div class="bg-gray-300">
+            <div class="px-5 pt-5 font-bold pb-2">🔸 自我介紹</div>
+            <div class="px-5">梁紘謙 William77</div>
+            <div class="px-5">資深前端工程師</div>
+            <div class="px-5"><span id="age">41</span> 歲 役畢
+                <div class="py-2">
+                    <hr />
+                </div>
+            </div>
+            <div class="px-5 pb-5 min-w-[400px]">
+                <div>就讀元智大學資傳系碩班互動科技組</div>
+                <div>就讀元智大學資傳系數位媒體設計組</div>
+                <div class="py-2">
+                    <hr />
+                </div>
+                <div class="font-bold pt-5">🔸 專精技能</div>
+                <div>
+                    <div>程式設計 (網站 / 遊戲 / 2D / 3D / 網頁軟體)</div>
+                    <div>創新科技應用發想</div>
+                    <div>攝影</div>
+                </div>
+                <div class="font-bold pt-5">🔸 待過產業</div>
+                <div>
+                    <div>形象官網 / EIP / 購物車系統前端開發</div>
+                    <div>VR 線上博物館導覽與互動小遊戲</div>
+                    <div>遊戲前端工程師</div>
+                    <div>TurtorABC 線上教育教室開發</div>
+                    <div>精油研發商行銷設計部門</div>
+                    <div>電子商務平台開發</div>
+                    <div>資訊安全行銷設計部門</div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-800 text-white">
+            <div class="px-5 pt-5">
+                <div class="font-bold pb-5">🔸 其他條件資格 Q&A</div>
+                <div>1. 具設計相關科系、資工、商業及管理相關科系相關背景。<br /><span class="text-orange-300">(具設計與資訊背景)</span></div>
+                <div>2. 熟悉AI技術應用，具備AI相關軟體或產品開發經驗。<br /><span class="text-orange-300">(使用提示詞與氛圍編碼撰寫程式)</span></div>
+                <div>3. 對於設計產業、設計實務有興趣或具備一定了解程度者。<br /><span class="text-orange-300">(大學時已具備多媒體設計能力)</span></div>
+            </div>
+            <div class="px-5 pt-5">
+                <div class="font-bold pb-5">🔸 作品展示</div>
+                <div>1. 創新科技發想階段 (Ideation Stage)</div>
+                <div class="pl-5">
+                    <div class="text-orange-300">⚡︎ AI 攝影助手 - 解決 AI 圖像創作著作權歸屬的新方法</div>
+                    <div class="text-orange-300">⚡︎ 跟車系統 - 解決跟車安全性問題，同步多台車地圖導引路線</div>
+                    <div class="text-orange-300">⚡︎ (運動科技) 音樂遊戲 DDR 踏板再利用 - 多元數位內容整合踏板</div>
+                </div>
+                <div>2. 概念設計作品 (Concept Design)</div>
+                <div class="pl-5">
+                    <div class="text-orange-300">⚡︎ Oops 妳是我的猿動力情趣抱枕</div>
+                </div>
+                <div>3. 平面創作 (Visual Design)</div>
+                <div class="pl-5">
+                    <div class="text-orange-300">⚡︎ 平面創作 in IG</div>
+                </div>
+                <div>4. 攝影創作 (Photography)</div>
+                <div class="pl-5">
+                    <div class="text-orange-300">⚡︎ 攝影創作 in IG</div>
+                </div>
+                <div>5. 程式作品 (Coding)</div>
+                <div class="pl-5 pb-5">
+                    <div class="text-orange-300">⚡︎ 藝術濾鏡軟體 NovaEditor</div>
+                    <div class="text-orange-300">⚡︎ 音樂遊戲展示 Pro Beat</div>
+                    <div class="text-orange-300">⚡︎ William77 x Works 所有作品集</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border border-orange-300"></div>
+    <div>
+        <div
+            class="floatUp m-5 mt-10 p-5 border-2 border-gray-500 text-2xl text-white text-border-black text-center bg-diagonal  border-y-10">
+            1.
+            創新科技發想階段 (Ideation
+            Stage)
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5 text-border-black">
+            <div class="grid grid-cols-2">
+                <div class="floatUp flex flex-col gap-1 p-5 ">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ AI 攝影助手 - 解決 AI 圖像創作著作權歸屬的新方法</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>市場痛點與情境</div>
+                        <div>現狀描述：過往AI生圖的作品沒有受到著作權的保護，需要有人類實質貢獻才有版權，且商業使用可能有侵權的風險</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>創新科技概念</div>
+                        <div>核心構想：相機或手機搭載 AI 攝影助理 APP，相機腳架架好後，限時10秒，由 AI 自動捕捉畫面與影像辨識，AI會分析構圖、RGB
+                            Channel、HSL、光影明暗、景深、色彩與視覺平衡、捕捉物的動態與位置、前景中景背景的配置等等資訊來生成照片。這種 AI 生成圖的方式無需考慮著作權歸屬問題，應為創作者所有。
+                        </div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>使用者價值與商業潛力</div>
+                        <div>用戶效益：
+                            假設 10 秒內生成 5 個作品，其中 2 個作品是作者滿意的，作者可以將作品上傳至雲端，包含前述 AI
+                            自動捕捉畫面與影像辨識的參數(這裡的參數即風格檔)。當作者上傳越多作品，就可以建立作者
+                            A
+                            喜好風格的參數，並可以分享給作者B，作者 B 也可以使用作者 A 的參數進行創作但需要付費(平台也要分潤)。
+                            很快的可以建立攝影師的雲端料庫，讓大家可以付費下載風格檔，並進行更多元或大師級的圖像創作。
+                        </div>
+                    </div>
+                </div>
+                <div class="floatUp flex flex-col gap-1 p-5">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ 跟車系統 - 解決跟車安全性問題，同步多台車地圖導引路線</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>市場痛點與情境</div>
+                        <div>
+                            現狀描述：汽車跟車是一個需要高度集中力的駕駛行為，往往會因為紅燈或是前方來車插入，導致跟車失敗，駕駛要重新配速與肉眼確認是否跟車成功，來來回回可能會花很多時間在確認上與產生分散注意力的風險。
+                        </div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>創新科技概念</div>
+                        <div>
+                            核心構想：可以在車上觸控板的地圖應用程式裡標示跟車與被跟車的車輛位置，並提供目前兩台車的距離、車速、油量、與導航路線同步、語音溝通，這可以去掉肉眼確認的問題，並讓駕駛專心開車提升安全性。
+                        </div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>使用者價值與商業潛力</div>
+                        <div>用戶效益：
+                            同步行進的路線讓駕駛更容易掌握同伴的車況，在跟車上更為安全。使用跟車APP需要下載軟體，該APP可以內置多元的付費功能，例如即時路況分析、即時車禍地點資訊提供、鄰近景點與美食(廣告商提供)等等。可以邀夥伴一起吃美食，使用者只要在觸控面板點選美食，即會重新規劃路線並將路線同步到所有夥伴的觸控螢幕上
+                        </div>
+                    </div>
+                </div>
+                <div class="floatUp flex flex-col gap-1 p-5">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ (運動科技) 音樂遊戲 DDR 踏板再利用 - 多元數位內容整合踏板</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>市場痛點與情境</div>
+                        <div>現狀描述：
+                            近年來運動科技興起，遊戲化的運動體驗是趨勢，早期音樂遊戲 Dance Dance Revolution
+                            曾是風靡全球的類運動型遊戲；但隨著時間流逝，可能是遊戲的遊戲介面或是玩法已經不感興趣，遊玩人數也跟著下滑。</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>創新科技概念</div>
+                        <div>核心構想：針對數位遊戲內容有更多元與變化性，可以採用一些簡單的遊戲與 DDR 踏板進行整合。例如，小蜜蜂、俄羅斯方塊，搭配踏板進行操作，對使用者來講是全新體驗</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>使用者價值與商業潛力</div>
+                        <div>
+                            用戶效益：
+                            針對宅在家的族群有新的運動遊玩方式，創造下一波宅經濟。而數位內容的多元性，可保持玩家的新鮮感，並願意買單。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="floatUp m-5 mt-10 p-5 border-2 border-gray-500 text-2xl text-white text-border-black text-center bg-diagonal  border-y-10">
+            2. 概念設計作品
+            (Concept
+            Design)
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5 text-border-black">
+            <div class="grid grid-cols-2">
+                <div class="floatUp p-5"><img src="./assets/bed.jpeg" width="400" class="rounded-[5px] shadow-lg"></div>
+                <div class="floatUp flex flex-col gap-1 p-5">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ Oops 妳是我的猿動力情趣抱枕</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>
+                            <div>說明：</div>
+                            <div>一字多意的諧音梗在台灣非常流行，這也可以成為 Slogan 的設計元素。你是我的『猿』動力原本是你是我的『原』動力，『猿』在此表達出幾個意思：</div>
+                            <div>1.『原』動力 - 產生動力與事物活力的源頭</div>
+                            <div>2.『猿』動力 - 充滿野性與情趣的用詞，十分詼諧</div>
+                            <div>抱枕的設計初衷是因應少字化的趨勢，透過傳遞枕頭來提醒男女該運動了</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="floatUp m-5 mt-10 p-5 border-2 border-gray-500 text-2xl text-white text-border-black text-center bg-diagonal  border-y-10">
+            3. 平面作品 (Visual Design) <a href="https://www.instagram.com/william77.ninja/" target="_blank"
+                class="text-[14px] text-orange-300 bg-gray-700 p-2">超連結點我</a>
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5">
+            <div class="floatUp grid grid-cols-2">
+                <div class="p-5"><img src="./assets/screenshot2.png" class="rounded-[5px] shadow-lg"></div>
+                <div class="p-5"><img src="./assets/screenshot2-2.png" class="rounded-[5px] shadow-lg"></div>
+            </div>
+        </div>
+
+        <div
+            class="floatUp m-5 mt-10 p-5 border-2 border-gray-500 text-2xl text-white text-border-black text-center bg-diagonal  border-y-10">
+            4. 攝影作品 (Photography) <a href="https://www.instagram.com/william77.fun/" target="_blank"
+                class="text-[14px] text-orange-300 bg-gray-700 p-2">超連結點我</a>
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5">
+            <div class="floatUp grid grid-cols-2">
+                <div class="p-5"><img src="./assets/screenshot1.png" class="rounded-[5px] shadow-lg"></div>
+                <div class="p-5"><img src="./assets/screenshot1-2.png" class="rounded-[5px] shadow-lg"></div>
+            </div>
+        </div>
+
+        <div
+            class="floatUp m-5 mt-10 p-5 border-2 border-gray-500 text-2xl text-white text-border-black text-center bg-diagonal  border-y-10">
+            5. 程式作品 (Coding)
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5 text-border-black">
+            <div class="grid grid-cols-2">
+                <div class="floatUp p-5"><img src="./assets/sample/upload05.png" class="rounded-[5px] shadow-lg"></div>
+                <div class="floatUp flex flex-col gap-1 p-5">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ 藝術濾鏡軟體 NovaEditor</div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>
+                            <div>說明：</div>
+                            <div>A. 主畫布</div>
+                            <div>B. 濾鏡選擇區</div>
+                            <div>C. 圖層區</div>
+                            <div>D. 濾鏡參數編輯區</div>
+                            <div>透過各式濾鏡的疊合，將原圖進行效果處理，產生新藝術視覺風格</div>
+                            <div>優勢是可以快速生成創作</div>
+                            <div>開發費時 1~2 年 (含研究與探索)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3">
+                <div class="floatUp p-5 flex justify-center items-center">
+                    <div class="p-2 px-4 bg-gray-600 text-gray-200 rounded-full w-full text-end">前後對比 -></div>
+                </div>
+                <div class="floatUp p-5">
+                    <img src="./assets/sample/upload01.png" class="rounded-[5px] shadow-lg">
+                </div>
+                <div class="floatUp p-5"><img src="./assets/sample/upload01-filter.png" class="rounded-[5px] shadow-lg">
+                </div>
+
+                <div class="floatUp p-5 flex justify-center items-center">
+                    <div class="p-2 px-4 bg-gray-600 text-gray-200 rounded-full w-full text-end">前後對比 -></div>
+                </div>
+                <div class="floatUp p-5">
+                    <img src="./assets/sample/upload02.png" class="rounded-[5px] shadow-lg">
+                </div>
+                <div class="floatUp p-5"><img src="./assets/sample/upload02-filter.png" class="rounded-[5px] shadow-lg">
+                </div>
+
+                <div class="floatUp p-5 flex justify-center items-center">
+                    <div class="p-2 px-4 bg-gray-600 text-gray-200 rounded-full w-full text-end">萬花筒 -></div>
+                </div>
+                <div class="floatUp p-5">
+                    <img src="./assets/sample/upload03.png" class="rounded-[5px] shadow-lg">
+                </div>
+                <div class="floatUp p-5"><img src="./assets/sample/upload04.png" class="rounded-[5px] shadow-lg">
+                </div>
+
+                <div class="floatUp p-5 flex justify-center items-center">
+                    <div class="p-2 px-4 bg-gray-600 text-gray-200 rounded-full w-full text-end">實體輸出 -></div>
+                </div>
+                <div class="floatUp p-5">
+                    <img src="./assets/c1.jpeg" class="rounded-[5px] shadow-lg">
+                </div>
+                <div class="floatUp p-5"><img src="./assets/c2.jpeg" class="rounded-[5px] shadow-lg">
+                </div>
+
+            </div>
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5 text-border-black">
+            <div class="grid grid-cols-2">
+                <div class="floatUp p-5"><img src="./assets/probeat.png" class="rounded-[5px] shadow-lg"></div>
+                <div class="floatUp flex flex-col gap-1 p-5">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ 音樂遊戲展示 Pro Beat </div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>
+                            <div>說明：</div>
+                            <div>節奏 DJ 音樂遊戲的 prototype (<a href="https://highq77.github.io/#/probeat_home"
+                                    class="text-orange-300">超連結點我</a>)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border border-gray-700 bg-diagonal m-5 text-border-black overflow-hidden">
+            <div class="grid grid-cols-2">
+                <div class="floatUp p-5"><img src="./assets/works.png" class="rounded-[5px] shadow-lg"></div>
+                <div class="floatUp flex flex-col gap-1 p-5">
+                    <div class="bg-gray-900 rounded-[5px] p-5 text-white border-t-2 border-orange-300">
+                        <div>⭐️ William77 x Works </div>
+                    </div>
+                    <div class="bg-gray-600 rounded-[5px] p-5 text-white hover:bg-gray-900">
+                        <div>
+                            <div>說明：</div>
+                            <div>29 個作品 (<a href="https://highq77.github.io" target="_blank"
+                                    class="text-orange-300">超連結點我</a>)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
